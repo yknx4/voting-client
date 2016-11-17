@@ -1,8 +1,8 @@
-
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {connect} from 'react-redux';
 import Winner from './Winner';
+import * as actionCreators from '../action_creators';
 
 export const Results = React.createClass({
   mixins: [PureRenderMixin],
@@ -35,7 +35,7 @@ export const Results = React.createClass({
                    onClick={this.props.next}>
             Next
           </button>
-      </div>
+        </div>
       </div>;
   }
 });
@@ -48,4 +48,7 @@ function mapStateToProps(state) {
   }
 }
 
-export const ResultsContainer = connect(mapStateToProps)(Results);
+export const ResultsContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(Results);
